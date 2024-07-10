@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Data Input</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Product Data Input</h1>
+    <form action="/" method="POST">
+        <div class="form-group">
+            <label for="Warehouse_block">Warehouse Block:</label>
+            <select name="Warehouse_block" id="Warehouse_block">
+                {% for option in warehouse_options %}
+                <option value="{{ option }}">{{ option }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="Mode_of_Shipment">Mode of Shipment:</label>
+            <select name="Mode_of_Shipment" id="Mode_of_Shipment">
+                {% for option in shipment_options %}
+                <option value="{{ option }}">{{ option }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="Customer_care_calls">Customer Care Calls:</label>
+            <input type="number" name="Customer_care_calls" id="Customer_care_calls">
+        </div>
+        <div class="form-group">
+            <label for="Customer_rating">Customer Rating:</label>
+            <input type="number" step="0.01" name="Customer_rating" id="Customer_rating" min="0" max="5">
+        </div>
+        <div class="form-group">
+            <label for="Cost_of_the_Product">Cost of the Product:</label>
+            <input type="number" step="0.01" name="Cost_of_the_Product" id="Cost_of_the_Product">
+        </div>
+        <div class="form-group">
+            <label for="Prior_purchases">Prior Purchases:</label>
+            <input type="number" name="Prior_purchases" id="Prior_purchases">
+        </div>
+        <div class="form-group">
+            <label for="Product_importance">Product Importance:</label>
+            <select name="Product_importance" id="Product_importance">
+                {% for option in product_importance_options %}
+                <option value="{{ option }}">{{ option }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="Gender">Gender:</label>
+            <select name="Gender" id="Gender">
+                {% for option in gender_options %}
+                <option value="{{ option }}">{{ option }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="Discount_offered">Discount Offered (%):</label>
+            <input type="number" step="0.5" name="Discount_offered" id="Discount_offered" min="0" max="100">
+        </div>
+        <div class="form-group">
+            <label for="Weight_in_gms">Weight in Grams:</label>
+            <input type="number" step="0.5" name="Weight_in_gms" id="Weight_in_gms">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
